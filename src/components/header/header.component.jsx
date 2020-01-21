@@ -8,7 +8,7 @@ import { ReactComponent as Logo } from '../../assets/crown.svg';
 
 import './header.styles.scss';
 
-const Header = ({ currentUser, cartHidden }) => (
+const Header = ({ currentUser, hidden }) => (
   <div className='header'>
     <Link className='logo-container' to='/'>
       <Logo className='logo' />
@@ -31,7 +31,7 @@ const Header = ({ currentUser, cartHidden }) => (
       )}
       <CartIcon/>
     </div>
-    {!cartHidden && <CartDropdown/>}
+    {!hidden && <CartDropdown/>}
   </div>
 );
 //questo è wow distructuring nested values
