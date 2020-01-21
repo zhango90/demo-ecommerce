@@ -2,12 +2,13 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import {connect} from 'react-redux'
 import { auth } from '../../firebase/firebase.utils';
-
+import CartIcon from '../cart-icon/cart-icon.component'
+import CartDropdown from '../cart-dropdown/cart-dropdown.component'
 import { ReactComponent as Logo } from '../../assets/crown.svg';
 
 import './header.styles.scss';
 
-const Header = ({ currentUser }) => (
+const Header = ({ currentUser, cartHidden }) => (
   <div className='header'>
     <Link className='logo-container' to='/'>
       <Logo className='logo' />
@@ -28,12 +29,15 @@ const Header = ({ currentUser }) => (
           SIGN IN
         </Link>
       )}
+      <CartIcon/>
     </div>
+    {!cartHidden && <CartDropdown/>}
   </div>
 );
-
-const mapStateToProps = state => ({
-  currentUser : state.user.currentUser
+//questo è wow distructuring nested values
+const mapStateToProps = ({user:{currentUser}, cart: {hidden}}) => ({
+  currentUser,
+  hidden
 })
 
 export default connect(mapStateToProps)(Header);
