@@ -11,7 +11,6 @@ import CheckoutPage from './pages/checkout/checkout.component'
 import { auth, createUserProfileDocument } from './firebase/firebase.utils';
 import {connect} from 'react-redux'
 import {setCurrentUser} from './redux/user/user.actions'
-
 import {selectCurrentUser} from './redux/user/user.selectors'
 class App extends React.Component {
 

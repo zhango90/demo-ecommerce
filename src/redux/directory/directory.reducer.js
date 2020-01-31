@@ -1,5 +1,3 @@
-import {directoryActionTypes} from './directory.types'
-
 const INITIAL_STATE = {
   sections: [
     {
